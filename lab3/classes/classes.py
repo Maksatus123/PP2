@@ -69,7 +69,8 @@ class Account:
             print(f"You cannot withdraw {amount}")
             self.__showBalance()
 
-
+sq = Square(23)
+print(sq.length)
 
 def isPrime(num: int):
   for i in range(2, int(math.sqrt(num))+1):
