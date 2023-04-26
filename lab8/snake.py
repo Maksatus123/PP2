@@ -28,6 +28,7 @@ class GameObject:
 
 class Snake(GameObject):
     def __init__(self):
+
         # head of the snake is at body[0]
         self.body = [Vector2(6, 5), Vector2(5, 5), Vector2(4, 5)]
         self.direction = Direction.RIGHT
@@ -144,13 +145,13 @@ class Game:
         self.renderGameInfo()
         pygame.display.flip()
 
-    def restart(self):
+    def restart(self, user_event):
         self.apple = Apple()
         self.snake = Snake()
         self.currLevel = 1
         self.FPS = 8
         self.collectedPoints = 0
-        self.updateScreen()
+        self.updateScreen(user_event)
         self.gameOver = False
 
     def drawPlayBtn(self):
@@ -194,7 +195,7 @@ class Game:
                 if event.type == pygame.MOUSEBUTTONUP and self.gameOver and restartBtn is not None:
                     pos = pygame.mouse.get_pos()
                     if restartBtn.collidepoint(pos):
-                        self.restart()
+                        self.restart(MOVEMENT)
 
 
 pb = PlayBoard()
